@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片美化测试</title>
+    <style>
+    div{
+        width:480px;
+        height:250px;
+        background-color:pink;
+        border:10px solid;
+        border-color:gray;
+        position:absolute;
+        top:200px;
+        left:400px;
+        width:400px 1000px;
+        animation:mymove 3s;
+    }
+    @keyframes mymove{
+      from{top:0px;transform:rotate(0deg);}
+      to{top:200px;transform:rotate(360deg);}
+    }
+    figure{
+        width:380px;
+        height:200px;
+        border:20px 20px solid #fff;
+        box-shadow:1px 1px 10px white;
+        overflow:hidden;
+        transform:scale(1);
+    }
+    figure img{
+        transform:scale(1);
+        transition:all .5s;
+    }
+    figure:hover img{
+        transform:scale(1.5);
+    }
+    figure figcaption{
+        position:absolute;
+        bottom:0;
+        z-index:10;
+        width:390px solid;
+        height:160px;
+        color:rgba(0,0,0,0);
+        background-color:rgba(255,255,255,0);
+        text-align:center;
+        line-height:200px;
+        transition:color 0.5s, background-color .5s;
+    }
+    figure:hover figcaption{
+        color:rgba(0,0,0,.8);
+        background-color:#eee;
+    }
+    </style>
+</head>
+<body>
+<div>
+    <figure>
+    <figcaption><pre> 壁纸</pre></figcaption>
+    <img src="http://img02.tooopen.com/images/20131204/sy_50113061196.jpg" alt=""> 
+    </figure>
+</div>
+</body>
+</html>
