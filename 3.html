@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .clearfix::after {
+        content: "";
+        width: 0;
+        height: 0;
+        font-size: 0;
+        display: block;
+        clear: both;
+    }
+    
+    body {
+        margin: 0;
+    }
+    
+    .top {
+        width: 1000px;
+        margin: 10px auto;
+        position: relative;
+    }
+    
+    .top .logo {
+        width: 193px;
+        height: 40px;
+        /* background: url('http://dl.pinyin.sogou.com/index/header/logo.png'); */
+        float: left;
+    }
+    
+    .top .search {
+        width: 345px;
+        height: 32px;
+        /* background: url('http://dl.pinyin.sogou.com/index/header/search_box.png'); */
+        float: right;
+    }
+    
+    .top .search #key {
+        width: 290px;
+        height: 26px;
+        outline: none;
+        border: 1px solid #eee;
+        text-indent: 10px;
+        float: left;
+    }
+    
+    .top .search #key:focus {
+        border: 1px solid #FC6B2D;
+    }
+    
+    .top .search #btn {
+        float: left;
+        width: 30px;
+        height: 30px;
+        text-indent: -9999em;
+        border: none;
+        outline: none;
+        background: url("http://dl.pinyin.sogou.com/index/header/search_box.png");
+        background-position: -293px 0;
+        margin-left: -2px;
+    }
+    
+    .menuCon {
+        width: 100%;
+        height: 40px;
+        background-color: #FC6B2D;
+    }
+    
+    .menu {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    .menu li {
+        list-style-type: none;
+    }
+    
+    .menu li {
+        float: left;
+        padding: 11px 20px;
+        margin: 0 20px 0 0;
+        position: relative;
+    }
+    
+    .menu li.new::after {
+        content: "";
+        width: 26px;
+        height: 14px;
+        background: url('http://dl.pinyin.sogou.com/index/2.0/new.png');
+        position: absolute;
+        top: -16px;
+        right: 0px;
+    }
+    
+    .menu li.act,
+    .menu li:hover {
+        background-color: #FF222D;
+    }
+    
+    .menu li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .banner {
+        height: 400px;
+        background: url('http://dl.pinyin.sogou.com/index/2.0/banner_8.0.2.jpg') center;
+    }
+    
+    .banner .btn {
+        width: 241px;
+        height: 60px;
+        display: inline-block;
+        background: url('http://dl.pinyin.sogou.com/index/2.0/btn_down_one_8.0.1.png') left top;
+        position: absolute;
+        right: 140px;
+        top: 300px;
+    }
+    /* 
+    脱离常规流的方式
+      浮动
+        脱离常规流
+        向左或向右移动，移动到前一个左浮动或右浮动元素的边缘，移动到父元素边缘
+        一旦浮动，一定清除
+          清除浮动的两种方式
+            在产生浮动的元素的后面，新建一个div，宽高为0，clear：both
+            在产生浮动元素的父元素上，添加一个类  clearfix
+      定位 绝对定位、固定定位
+    
+    块状元素水平居中
+      固定宽度  水平方向的margin设置为auto
+    
+    一个块状元素，默认宽度为100%，默认高度auto
+      默认高度为auto，有多少算多少
+    
+    链接默认为行内元素（不要占一行，没有宽和高的），需要转换为行内块元素或块元素才可以用宽和高和背景
+    
+    
+    绝对定位的基准  最近的已经定位过的祖先元素
+    网页的布局(排版)
+      某一块内容或某一行内容，往往加一个容器（一般是一个有意义的块状元素例如h1,ul.menu，也可以用div）
+      实现布局的时候，
+        如果不用脱离常规流(标准流), 
+           用margin\padding\border\background等实现，有可能影响其他兄弟元素
+           用相对定位posr 
+        如果脱离常规流
+           固定定位，如果某个元素相对于浏览器窗口位置固定不变  position:fixed
+           绝对定位, 如果某个元素相对于某个祖先元素位置固定不变  position:absolute;  
+              注意设置绝对定位基准(在定位基准元素上 position:relative;)
+           浮动, 左右位置的设置
+              如果浮动，一定清除
+    CSS书写顺序
+      先写公共类
+      全局
+      从上往下一部分一部分写
+    */
+    </style>
+</head>
+
+<body>
+    <div class="top clearfix">
+        <div class="logo">
+            <a href="http://pinyin.sogou.com/">
+                <img src="http://dl.pinyin.sogou.com/index/header/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search  clearfix">
+            <input type="text" name="key" id="key">
+            <input type="submit" id="btn" value="搜索">
+        </div>
+    </div>
+    <div class="menuCon">
+        <ul class="menu clearfix">
+            <li class="act">
+                <a href="">首页</a>
+            </li>
+            <li>
+                <a href="">皮肤</a>
+            </li>
+            <li>
+                <a href="">词库</a>
+            </li>
+            <li class="new">
+                <a href="">子媒体</a>
+            </li>
+            <li>
+                <a href="">帮助</a>
+            </li>
+            <li>
+                <a href="">升级日志</a>
+            </li>
+            <li>
+                <a href="">论坛</a>
+            </li>
+        </ul>
+    </div>
+    <div class="banner">
+        <div class="top">
+            <a class="btn" href="#"></a>
+        </div>
+    </div>
+</body>
+
+</html>
